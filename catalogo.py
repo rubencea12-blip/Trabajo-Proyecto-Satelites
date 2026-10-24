@@ -25,14 +25,15 @@ def grupo(nombre):
     return "Otros"
 
 
-def leer_satelites(ruta):
+def leer_satelites(ruta: str) -> list:
     """Lee el json (utf-8) y devuelve la lista de registros."""
     try:
         with open(ruta, "r", encoding="utf-8") as archivo:
-            return json.load(archivo)
+            registros = json.load(archivo)
     except FileNotFoundError:
-        print("no se encontró el archivo:", ruta)
+        print("no se encontró el archivo")
         return []
+    return registros
 
 
 def contar_por_grupo(registros):
@@ -67,3 +68,4 @@ if __name__ == "__main__":
     registros = leer_satelites("datos/satelites.json")
     print(len(registros))
     print(contar_por_grupo(registros))
+    print(registros[4])
