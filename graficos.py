@@ -33,3 +33,17 @@ def barras_apiladas(lanzamientos_a, lanzamientos_b, etiqueta_a, etiqueta_b, arch
     plt.legend()
     plt.savefig("salidas/" + archivo)
     plt.show()
+    
+def barras_altura_media(resumen, archivo):
+    """Barras con la altitud media de cada grupo."""
+    grupos = list(resumen.keys())
+    medias = []
+    for nombre_grupo in grupos:
+        medias.append(resumen[nombre_grupo]["media"])
+    plt.figure(figsize=(10, 5))
+    plt.bar(grupos, medias)
+    plt.title("Altitud media por grupo")
+    plt.xlabel("Grupo")
+    plt.ylabel("Altitud media (km)")
+    plt.savefig("salidas/" + archivo)
+    plt.show()
