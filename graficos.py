@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 
 def barras_lanzamientos(lanzamientos, archivo):
@@ -45,5 +46,35 @@ def barras_altura_media(resumen, archivo):
     plt.title("Altitud media por grupo")
     plt.xlabel("Grupo")
     plt.ylabel("Altitud media (km)")
+    plt.savefig("salidas/" + archivo)
+    plt.show()
+
+def histograma_altitudes_leo(satelites, archivo, ancho_bin=10):
+    """Histograma de altitudes entre 200 y 2000 km."""
+    altitudes = []
+    for satelite in satelites:
+        if 200 <= satelite.altitud_km <= 2000:
+            altitudes.append(satelite.altitud_km)
+    plt.figure(figsize=(10, 5))
+    plt.hist(altitudes, bins=np.arange(200, 2000 + ancho_bin, ancho_bin))
+    plt.title("Altitudes en órbita baja")
+    plt.xlabel("Altitud (km)")
+    plt.ylabel("Cantidad de satélites")
+    plt.savefig("salidas/" + archivo)
+    plt.show()
+
+
+def histograma_altitudes_log(satelites, archivo, n_bins=60):
+    """Histograma de todas las altitudes con eje X logaritmico."""
+    altitudes = []
+    for satelite in satelites:
+        altitudes.append(satelite.altitud_km)
+    bins = np.logspace(np.log10(min(altitudes)), np.log10(max(altitudes)), n_bins)
+    plt.figure(figsize=(10, 5))
+    plt.hist(altitudes, bins=bins)
+    plt.xscale("log")
+    plt.title("Altitudes de todos los satélites")
+    plt.xlabel("Altitud (km, escala logarítmica)")
+    plt.ylabel("Cantidad de satélites")
     plt.savefig("salidas/" + archivo)
     plt.show()
