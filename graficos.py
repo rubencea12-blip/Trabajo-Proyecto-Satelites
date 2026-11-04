@@ -78,3 +78,16 @@ def histograma_altitudes_log(satelites, archivo, n_bins=60):
     plt.ylabel("Cantidad de satélites")
     plt.savefig("salidas/" + archivo)
     plt.show()
+
+def histograma_inclinaciones(registros, archivo):
+    """Histograma de la inclinacion de las orbitas, de 0 a 180 grados."""
+    inclinaciones = []
+    for registro in registros:
+        inclinaciones.append(registro["INCLINATION"])
+    plt.figure(figsize=(10, 5))
+    plt.hist(inclinaciones, bins=np.arange(0, 181, 1))
+    plt.title("Inclinaciones de las órbitas")
+    plt.xlabel("Inclinación (grados)")
+    plt.ylabel("Cantidad de satélites")
+    plt.savefig("salidas/" + archivo)
+    plt.show()
