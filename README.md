@@ -23,3 +23,22 @@ Proyecto de Programación 1. Lee un catálogo de satélites en formato JSON, los
 - `graficos.py`: gráficos de barras e histogramas
 - `informe.ipynb`: el informe
 - `salidas/`: figuras generadas por los gráficos
+
+## Etapa 1
+
+1. Carga de datos
+2. Grupos
+3. Lanzamientos por año
+4. Tipos de órbita
+5. Extremos
+6. Comparación de grupos
+7. Satélites sobre Bariloche
+8. Conclusiones
+
+## Etapa 2
+
+1. Lanzamientos por año, con barras apiladas de Starlink contra el resto
+2. Altura media por grupo
+3. Altitudes en órbita baja (bins de 10 y de 50 km)
+4. Todas las altitudes en escala logarítmica
+5. Inclinaciones, con filtro por grupo
