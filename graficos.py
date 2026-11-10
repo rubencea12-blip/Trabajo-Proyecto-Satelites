@@ -91,3 +91,19 @@ def histograma_inclinaciones(registros, archivo):
     plt.ylabel("Cantidad de satélites")
     plt.savefig("salidas/" + archivo)
     plt.show()
+
+
+def dispersion_posiciones(satelites, archivo):
+    """Grafico de puntos con la longitud y la latitud de cada satelite."""
+    longitudes = []
+    latitudes = []
+    for satelite in satelites:
+        longitudes.append(satelite.longitud)
+        latitudes.append(satelite.latitud)
+    plt.figure(figsize=(12, 6))
+    plt.plot(longitudes, latitudes, ".", markersize=1)
+    plt.title("Posición de los satélites")
+    plt.xlabel("Longitud (grados)")
+    plt.ylabel("Latitud (grados)")
+    plt.savefig("salidas/" + archivo)
+    plt.show()   
